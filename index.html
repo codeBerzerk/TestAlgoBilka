@@ -3,22 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumberjack Game</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Tree Chop Game</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .game-container {
+            position: relative;
+            width: 150px;
+            height: 400px;
+            background-color: #8B4513;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .branch {
+            width: 50px;
+            height: 20px;
+            background-color: green;
+            position: absolute;
+            transition: top 0.3s ease;
+        }
+
+        .branch.left {
+            left: -55px; /* Branches positioned outside the tree */
+        }
+
+        .branch.right {
+            right: -55px;
+        }
+
+        .player {
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            position: absolute;
+            bottom: 10px;
+            left: -40px; /* Initially left side */
+        }
+
+        .controls {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 0 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
+
 <div class="game-container">
     <div id="tree"></div>
-    <div id="player"></div>
-
-    <div id="score">0</div>
+    <div class="player" id="player"></div>
 </div>
 
-<div id="controls">
-    <button id="leftBtn">⬅️</button>
-    <button id="rightBtn">➡️</button>
+<div class="controls">
+    <button id="leftBtn">Left</button>
+    <button id="rightBtn">Right</button>
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
